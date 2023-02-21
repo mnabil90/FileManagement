@@ -1,4 +1,6 @@
 package com.demo.FileManagement.graphql;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,7 @@ public class Query implements GraphQLQueryResolver {
 	
 
 	public FileDB findFileInfoGraphQL(String id) {
-		return fileDBRepository.getFileInfo(id);
+		Optional<FileDB> f = fileDBRepository.getFileInfo(id);
+		return f.isPresent() ? f.get() : null;
 	} 
 }
