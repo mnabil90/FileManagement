@@ -1,5 +1,7 @@
 package com.demo.FileManagement.repository;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +18,6 @@ public interface FileDBRepository extends JpaRepository<FileDB, String> {
 
 	
 	@Query("SELECT f FROM FileDB f WHERE f.id=:id")
-	FileDB getFileInfo(@Param(value = "id") String id);
+	Optional<FileDB> getFileInfo(@Param(value = "id") String id);
 
 }

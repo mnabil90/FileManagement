@@ -26,7 +26,8 @@ public class FileDBService {
     
     @Transactional
     public FileDB getFileInfo(final String id) {
-        return this.fileDBRepository.getFileInfo(id);
+    	Optional<FileDB> f = this.fileDBRepository.getFileInfo(id);
+        return f.isPresent() ? f.get() : null;
     }
     
 }
