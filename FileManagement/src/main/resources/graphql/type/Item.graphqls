@@ -1,0 +1,6 @@
+type Item{
+    id: ID!
+    type: String
+    name: Long
+    parentItem : Item
+}

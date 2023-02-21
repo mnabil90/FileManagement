@@ -1,0 +1,9 @@
+type FileDB {
+	id : ID!
+	fileName : String!
+	fileSize : Long!
+}
+
+type Query{
+	getFileInfo(id: ID!): FileDB
+}

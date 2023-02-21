@@ -1,0 +1,6 @@
+type FileDB{
+    id: ID
+    fileName: String
+    fileSize: Long
+    item : Item
+}
