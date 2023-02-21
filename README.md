@@ -1,4 +1,4 @@
-# Docker Compose Spring Boot and MySQL example
+# Docker Compose Spring Boot and Postgres example
 
 ## Run the System
 We can easily run the whole with only a single command:
