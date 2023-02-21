@@ -71,6 +71,10 @@ public class FlieService {
 	public ResponseMessage getFileInfo(String id,String userEmail) {
 		ResponseMessage rm = new ResponseMessage();
 		FileDB file  =fileDBRepository.getFileInfo(id);
+		if(file == null) {
+			rm.setSuccess(false);
+			rm.setMessage("File Don't Exist");
+		}
 		boolean isAllowed  = checkUserActionOnFile(file.getItem(),userEmail,"FILE_INFO");
 		if(isAllowed) {
 			rm.setSuccess(true);
