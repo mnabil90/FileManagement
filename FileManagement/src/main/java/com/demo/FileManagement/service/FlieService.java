@@ -46,10 +46,11 @@ public class FlieService {
 				rm.setSuccess(false);
 				rm.setMessage("Couldn't upload File due to error => " + e.getMessage());
 			}
-			fileDBRepository.save(uploadfile);
+			uploadfile = fileDBRepository.save(uploadfile);
 			rm.setSuccess(true);	
 			rm.setMessage("File was Added to " + item.getName());
-		}else {
+			rm.setData(uploadfile.getId());
+			}else {
 			rm.setSuccess(isAllowed);
 			rm.setMessage("Not Authorized Action");
 		}
@@ -89,7 +90,7 @@ public class FlieService {
 		for(Permission permission : list) {
 			for(Permission itemPermission : itemPermissionsList) {
 				if(permission.getId().equals(itemPermission.getId())) {
-					if((actionType.equals("DOWNLOAD") || actionType.equals("UPLOAD")) && permission.getPermissionLevel().equals("EDIT")) {
+					if((actionType.equals("DOWNLOAD") || actionType.equals("UPLOAD")||actionType.equals("FILE_INFO")) && permission.getPermissionLevel().equals("EDIT")) {
 						isAllowed = true;
 						break;
 					}
